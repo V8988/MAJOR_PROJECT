@@ -1,0 +1,45 @@
+<% layout("./layouts/boilerPlate.ejs") %>
+<body>
+    <div class="row">
+        <div class="col-8 offset-2">
+     <h3>New Listing From</h3>
+    <form action="http://localhost:3000/listings" method="POST" class="needs-validation" enctype="multipart/form-data" novalidate>
+        <div class="mb-3">
+            <label for="title" class="form-label">Title</label>
+            <input type="text" name="title" placeholder="Add a catchy title" id="title" class="form-control" required>
+            <div class="valid-feedback">Title looks good</div>
+        </div>
+        <div class="mb-3">
+            <label for="description" class="form-label">Description</label>
+            <textarea name="description"  id="description" class="form-control" required></textarea>
+             <div class="invalid-feedback">Description should be valid</div>
+        </div>
+        <div class="mb-3">
+            <label for="image" class="form-label">Upload Listing Image</label>
+            <input type="file" name="image"  class="form-control" id="image" required >
+             <div class="invalid-feedback">Image should be valid</div>
+        </div>
+        <div class="row">
+              <div class="mb-3 col-md-4">
+            <label for="price" class="form-label">Price</label>
+             <input type="number" name="price" class="form-control" id="price" required>
+             <div class="invalid-feedback">Price should be valid</div>
+        </div>
+        <div class="mb-3 col-md-8">
+            <label for="country" class="form-label">Country</label>
+            <input type="text" name="country" class="form-control" id="country" placeholder="India" required>
+            <div class="invalid-feedback">Country should be valid</div>
+        </div>
+        </div>
+          <div class="mb-3">
+            <label for="location" class="form-label">Location</label>
+            <input type="text" name="location"  class="form-control" id="location" placeholder="Narasaraopet,Palnadu" required>
+            <div class="invalid-feedback">Location should be valid</div>
+        </div>
+        <div class="mb-3">
+            <button class="btn btn-outline-dark add-btn" >Add Listing</button>
+        </div>
+    </form>
+    </div>
+    </div>
+</body>
