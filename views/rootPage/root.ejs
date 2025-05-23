@@ -1,0 +1,36 @@
+<% layout("/layouts/boilerPlate.ejs") %>
+
+<style>
+    @media (max-width:430px){
+        .row{
+            width: 100%;
+            height: 70vh;
+        }
+        .col_1 h1{
+            font-size: 8vh !important;
+            text-transform: uppercase;
+        }
+        .col_2{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10vw;
+        }
+        .col_2 a{
+            width: 30vw;
+        }
+    }
+</style>
+
+<div class="row">
+    <div class="col col_1">
+        <h1>welcome</h1>
+        <h1>to</h1>
+        <h1>wander</h1>
+        <h1>lust</h1>
+    </div>
+    <div class="col col_2">
+        <a href="/signup" class="btn btn-dark">Sign In</a>
+        <a href="/login" class="btn btn-success">Log In</a>
+    </div>
+</div>
