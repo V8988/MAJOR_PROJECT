@@ -1,56 +1,109 @@
-<style>
-.search-btn{
-  background-color: #fe424d;
-  color: white;
-  font-size: 0.9rem;
-  border-radius: 25px;
-  padding: 0 1rem 0 1rem;
-}
-.search-btn:hover{
-  background-color: #fe424d;
-  color: white;
-}
-.fa-solid {
-  display: inline;
-  margin-right: 10px;
-}
-.search-box{
-  border-radius: 25px;
-  padding: 0.3rem 3rem 0.3rem 3rem;
-  font-size: 15px;
-}
-</style>
+  <style>
 
-<nav class="navbar navbar-expand-lg bg-body-tertiary sticky-top">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="/listings">
-      <i class="fa-solid fa-compass"></i>
-    </a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-      <div class="navbar-nav">
-        <a class="nav-link" href="/listings">Explore</a>
+  @media (max-width:430px){
+    .search-div{
+      display: none;
+    }
+    .mobile-search{
+      display: flex !important;
+      align-items: center;
+      justify-content: center;
+    }
+    .search-box-m{
+      width: 90%;
+      margin-right: 10px !important;
+      border-radius: 25px;
+      padding: 10px 20px 10px 20px;
+    }
+    .search-btn-m{
+      width: 20%;
+      border-radius: 50%;
+      background-color: #fe424d;
+       display: flex !important;
+      align-items: center;
+      justify-content: center;
+    }
+    .navbar-nav a{
+      color: white;
+    }
+  }
+  @media (min-width:500px){
+    .mobile-search{
+      display: none;
+    }
+  }
+  .search-btn{ 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color:#fe424d;
+    padding: 5px 10px 5px 10px !important;
+    color: white;
+    border-radius: 25px;
+    gap: 10px;
+
+  }
+ 
+  .search-box{
+    width: 20vw;
+    margin-right: 20px !important;
+    border-radius: 25px;
+    padding:  10px 20px 10px 20px;
+  }
+  </style>
+
+  <nav class="navbar navbar-expand-lg bg-body-tertiary sticky-top" >
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/listings">
+        <i class="fa-solid fa-compass"></i>
+      </a>
+      <!-- Mobile search Box -->
+      <div class="container-fluid col ms-auto mobile-search">
+        <form class="d-flex" role="search" method="POST" action="/listings/title">
+  
+            <input class="form-control me-2 search-box-m" type="search" placeholder="Search Destination" aria-label="Search" name="title"/>
+          <button class="btn search-btn-m" type="submit">
+            <i class="fa-solid fa-magnifying-glass"></i></button>
+        
+          </form>
       </div>
-       <div class="navbar-nav ms-auto">
-        <form class="d-flex" role="search">
-        <input class="form-control me-2 search-box" type="search" placeholder="Search Destination" aria-label="Search"/>
-        <button class="btn search-btn" type="submit">
-          <i class="fa-solid fa-magnifying-glass"></i>Search</button>
-        </form>
-      </div>
-        <div class="navbar-nav ms-auto">
-        <a class="nav-link" href="/listings/new">Airbnb Your Home</a>
-        <% if(!currentUser){ %>
-        <a class="nav-link" href="/signup"><b>Sign Up</b></a>
-        <a class="nav-link" href="/login"><b>Log In</b></a>
-        <% } %>
-        <% if(currentUser){ %>
-         <a class="nav-link" href="/logout"><b>Log Out</b></a>
+      <button id="nav-toggle-btn"  class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <a class="nav-link" href="/listings">Explore</a>
+        </div>
+        <!-- Laptop Navbar -->
+        <div class="navbar-nav ms-auto search-div">
+          <form class="d-flex" role="search" method="POST" action="/listings/title">
+          <input class="form-control me-2 search-box" type="search" placeholder="Search Destination" aria-label="Search" name="title"/>
+          <button class="btn search-btn" type="submit">
+            <i class="fa-solid fa-magnifying-glass"></i>Search</button>
+          </form>
+        </div>
+          <div class="navbar-nav ms-auto">
+          <a class="nav-link" href="/listings/new">Airbnb Your Home</a>
+          <% if(!currentUser){ %>
+          <a class="nav-link" href="/signup"><b>Sign Up</b></a>
+          <a class="nav-link" href="/login"><b>Log In</b></a>
           <% } %>
+          <% if(currentUser){ %>
+          <a class="nav-link" href="/logout"><b>Log Out</b></a>
+            <% } %>
+        </div>
       </div>
+      
     </div>
-    
-  </div>
-</nav>
+  </nav>
+
+  <script>
+    let btn = document.getElementById("nav-toggle-btn");
+    let navbarcolaps = document.getElementById("navbarNavAltMarkup");
+    btn.addEventListener("click",()=>{
+    navbarcolaps.style.backgroundColor="black";
+    navbarcolaps.style.marginTop="8%";
+    navbarcolaps.style.padding="10px";
+    navbarcolaps.style.borderRadius="25px"
+    });
+  </script>

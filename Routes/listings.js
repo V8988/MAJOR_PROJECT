@@ -22,5 +22,6 @@ router.route("/:id")
 //Listings Edit From
 router.get('/:id/edit',isLoggedIn,isOwner,wrapAsync(listingController.edit));
 
+router.post('/title',wrapAsync(listingController.titleSpecific));
 
 module.exports = router;

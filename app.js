@@ -87,11 +87,14 @@ app.use((req,res,next)=>{
      next();
 });
 
+
 app.use("/listings",listingsRoute);
 app.use("/listings/:id/reviews",reviewsRoute);
 app.use("/",userRoute);
 
-
+app.get('/',(req,res)=>{
+    res.render("./rootPage/root.ejs");
+});
 
 app.use((req,res)=>{
     throw new ExpressError(404,"Page Not Found");

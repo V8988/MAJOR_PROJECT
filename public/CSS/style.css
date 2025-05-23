@@ -59,6 +59,7 @@ footer{
 .card-img-top{
     border-radius: 1rem !important;
     width: 100% !important;
+    height: 10vh;
 }
 .card-body{
     padding: 0px !important;
@@ -121,10 +122,6 @@ footer{
 }
 .fa-user{
     display: inline;
-    margin-left: 10px;
-}
-.fa-star{
-    color: gold;
 }
 .warn-sym{
     color: red;
@@ -147,4 +144,7 @@ footer{
 }
 hr{
     color:#fe424d;
+}
+.card-img{
+    object-fit: cover;
 }

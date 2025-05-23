@@ -1,8 +1,50 @@
 <% layout("/layouts/boilerPlate.ejs") %>
-<body>
+    <style>
+        @media (max-width:430px){
+            #title-box{
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+             }
+             #title-info{
+                font-size: 18px;
+             }
+            .offset-3{
+                margin-left: 0px;
+            }
+            .card{
+                display: flex;
+                width: 95%;
+            }
+            .row{
+                display: flex !important;
+                justify-content: center;
+                width: 99vw;
+            }
+            .btns{
+                height: 10vh;
+            }
+            .edit-btn,.delete-btn{
+                width: 30vw;
+            }
+           .col-6{
+                width: 100%;
+                font-size: 18px;
+                font-weight: 500;
+            }.review-card{
+
+                margin: 0px !important;
+                margin-top: 10px !important;
+                margin-bottom: 10px !important;
+            }img{
+                height: 25vh !important;
+            }
+        }
+    </style>
     <div class="row">
-        <div class="col-8  mb-3 offset-3">
-              <h3><b><%= listing.title  %></b></h3>
+        <div class="col-8  mb-3 offset-3" id="title-box">
+              <h3 id="titel-info"><b><%= listing.title  %></b></h3>
         </div>
     <div class="card show-card col-6 offset-3">
         <img src="<%= listing.image.url %>" class="card-img-top show-img " alt="...">
@@ -86,4 +128,3 @@
                     <% } %> 
             </div>
     </div>
-</body>

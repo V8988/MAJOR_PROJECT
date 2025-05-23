@@ -1,8 +1,36 @@
 <% layout("/layouts/boilerPlate.ejs") %>
-<body>
+<style>
+    @media (max-width:430px){
+    .row{
+
+        height: 50vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .col-6{
+
+        width: 95%;
+        height: 90%;
+    }
+    .offset-3{
+        margin-left: 0px;
+    }
+    label{
+        font-weight: 700;
+    }
+    #main-title{
+        text-align: center;
+        letter-spacing: 2px;
+    }
+    .btn-success{
+        width: 50% !important;
+    }
+}
+</style>
     <div class="row">
             <div class="col-6 offset-3 ">
-                 <h3>Login Form</h3>
+                 <h3 id="main-title">Login Form</h3>
                 <form action="/login" method="POST" class="needs-validation mt-3" novalidate>
                     <div class="mt-2 mb-3">
                         <label for="username" class="form-label">Username</label>
@@ -18,4 +46,4 @@
                 </form>
             </div>
     </div>
-</body>
+

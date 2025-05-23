@@ -83,3 +83,18 @@ module.exports.show = async (req,res)=>{
          res.render("./listing/show.ejs",{ listing,presentUser:req.user });
     }
 }
+module.exports.titleSpecific = async (req,res)=>{
+    let {title} = req.body;
+    if(title){
+    let allListings = await Listing.find({title});
+    if(allListings.length == 0){
+        req.flash("error","Listing not found");
+        return res.redirect('/listings');
+    }
+    res.render("./listing/index.ejs",{allListings});
+    console.log(allListings);
+    }else{
+        req.flash("error","Please Fill Valid Information");
+        res.redirect('/listings');
+    }
+}
